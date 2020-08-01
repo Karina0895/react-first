@@ -2,23 +2,25 @@ import React, { Component } from 'react'
 import ListElement from './ListElement'
 
 const styles = {
-    text: {
+    model: {
       padding: 20,
+      paddingLeft: 10,
+      listStyleType: 'none',
     }
-  }
+  };
 
 export default class List extends Component {
 
     mapElement = (object) => {
-        return <ListElement key={object.id} text={object.text}/>
-    }
+        return <ListElement key={object.id} model={object.model}/>
+    };
 
     render() {
-        console.log('this.props:', this.props)
+        console.log('this.props:', this.props);
         return (
             <div>
-                <ul style={styles.text}>
-                    {this.props.arr.map(({ id, text }) => <ListElement key={id} text={text}/>)}
+                <ul style={styles.model}>
+                    {this.props.arr.map(({ id, model }) => <ListElement key={id} model={model}/>)}
                 </ul>
             </div>
         )
