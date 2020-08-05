@@ -35,7 +35,7 @@ export default class App extends Component {
     const { state: { array } } = this;
     const lastElement = array[array.length-1];
     let modelVal = document.getElementById('model').value;
-    if (modelVal.length == 0){
+    if (modelVal.length === 0){
         modelVal = 'New Car';
     }
     this.setState({
@@ -53,9 +53,14 @@ export default class App extends Component {
   onRemoveBtnClick() {
     const { state: { array } } = this;
     console.log(array);
-    this.setState({
-      array: array.slice(1, array.length)
-    })
+      if (array.length > 1) {
+          this.setState({
+              array: array.slice(1, array.length)
+          })
+      }
+      else{
+          alert("There is only one car in the table. You can't remove last element.")
+      }
   }
 
   onFilterBtnClick() {
